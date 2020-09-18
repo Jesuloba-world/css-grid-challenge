@@ -1,0 +1,107 @@
+/* METHOD 1: LINE NUMBER
+
+.container {
+    background-color: #eee;
+    height: 600px;
+    width: 600px;  
+    margin: 20px auto;
+    font-family: sans-serif;
+    color: white;
+
+    display: grid; 
+    grid-template-rows:  repeat(8, 1fr); 
+    grid-template-columns: repeat(8, 1fr);
+    
+    grid-gap: 20px;  
+}
+
+.item {
+    background-color: orangered;
+    padding: 10px;  
+}
+
+.header {
+    grid-column: 1 / -1; 
+}
+
+.footer {
+    grid-column: 1 / -1; 
+    grid-row: span 1;  
+}
+
+.sidebar {
+    grid-column: 7 / span 2;  
+    grid-row: -8 / -2;
+}
+
+.small-box {
+    grid-row: span 2;  
+    grid-column: span 2; 
+}
+
+.main-content {
+    grid-column: span 6; 
+    grid-row: span 4; 
+} */
+
+
+
+
+/* METHOD 2: NAME GRID AREA */
+
+.container {
+    background-color: #eee;
+    height: 600px;
+    width: 600px;  
+    margin: 20px auto;
+    font-family: sans-serif;
+    color: white;
+
+    display: grid; 
+    grid-template-rows:  repeat(8, 1fr); 
+    grid-template-columns: repeat(8, 1fr);
+
+    grid-template-areas: "head head head head head head head head"
+                         "box1 box1 box2 box2 box3 box3 side side"
+                         "box1 box1 box2 box2 box3 box3 side side"
+                         "main main main main main main side side"
+                         "main main main main main main side side"
+                         "main main main main main main side side"
+                         "main main main main main main side side"
+                         "foot foot foot foot foot foot foot foot";
+    
+    grid-gap: 20px;  
+}
+
+.item {
+    background-color: orangered;
+    padding: 10px;  
+}
+
+.header {
+    grid-area: head; 
+}
+
+.footer {
+    grid-area: foot;
+}
+
+.sidebar {
+    grid-area: side;
+}
+
+.small-box--1 {
+    grid-area: box1;
+}
+
+.small-box--2 {
+    grid-area: box2;
+}
+
+.small-box--3 {
+    grid-area: box3;
+}
+
+.main-content {
+    grid-area: main; 
+}
